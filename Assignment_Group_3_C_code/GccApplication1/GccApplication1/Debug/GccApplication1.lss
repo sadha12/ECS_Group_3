@@ -1,0 +1,289 @@
+
+GccApplication1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000011c  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000170  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00000170  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000001a0  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000020  00000000  00000000  000001dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000595  00000000  00000000  000001fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000522  00000000  00000000  00000791  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000295  00000000  00000000  00000cb3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000024  00000000  00000000  00000f48  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000002e4  00000000  00000000  00000f6c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000039  00000000  00000000  00001250  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000010  00000000  00000000  00001289  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 3a 00 	jmp	0x74	; 0x74 <__ctors_end>
+   4:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+   8:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+   c:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  10:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  14:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  18:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  1c:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  20:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  24:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  28:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  2c:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  30:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  34:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  38:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  3c:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  40:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  44:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  48:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  4c:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  50:	0c 94 44 00 	jmp	0x88	; 0x88 <__bad_interrupt>
+  54:	56 00       	.word	0x0056	; ????
+  56:	59 00       	.word	0x0059	; ????
+  58:	5c 00       	.word	0x005c	; ????
+  5a:	5f 00       	.word	0x005f	; ????
+  5c:	62 00       	.word	0x0062	; ????
+  5e:	65 00       	.word	0x0065	; ????
+  60:	68 00       	.word	0x0068	; ????
+  62:	6b 00       	.word	0x006b	; ????
+  64:	6e 00       	.word	0x006e	; ????
+  66:	71 00       	.word	0x0071	; ????
+  68:	74 00       	.word	0x0074	; ????
+  6a:	77 00       	.word	0x0077	; ????
+  6c:	7a 00       	.word	0x007a	; ????
+  6e:	7d 00       	.word	0x007d	; ????
+  70:	80 00       	.word	0x0080	; ????
+  72:	83 00       	.word	0x0083	; ????
+
+00000074 <__ctors_end>:
+  74:	11 24       	eor	r1, r1
+  76:	1f be       	out	0x3f, r1	; 63
+  78:	cf e5       	ldi	r28, 0x5F	; 95
+  7a:	d8 e0       	ldi	r29, 0x08	; 8
+  7c:	de bf       	out	0x3e, r29	; 62
+  7e:	cd bf       	out	0x3d, r28	; 61
+  80:	0e 94 46 00 	call	0x8c	; 0x8c <main>
+  84:	0c 94 8c 00 	jmp	0x118	; 0x118 <_exit>
+
+00000088 <__bad_interrupt>:
+  88:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000008c <main>:
+
+
+int main(void)
+{
+    /* Replace with your application code */
+    unsigned char *p=0x180;
+  8c:	a0 e8       	ldi	r26, 0x80	; 128
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+	unsigned char temp;
+	while(1)
+	{
+	DDRC= 0xFF;
+  90:	8f ef       	ldi	r24, 0xFF	; 255
+  92:	84 bb       	out	0x14, r24	; 20
+	PORTC= 0X01;
+  94:	81 e0       	ldi	r24, 0x01	; 1
+  96:	85 bb       	out	0x15, r24	; 21
+	DDRC= 0X00;
+  98:	14 ba       	out	0x14, r1	; 20
+	
+	temp = PINC;
+  9a:	e3 b3       	in	r30, 0x13	; 19
+	
+	switch(temp)
+  9c:	f0 e0       	ldi	r31, 0x00	; 0
+  9e:	e0 31       	cpi	r30, 0x10	; 16
+  a0:	f1 05       	cpc	r31, r1
+  a2:	b0 f7       	brcc	.-20     	; 0x90 <main+0x4>
+  a4:	e6 5d       	subi	r30, 0xD6	; 214
+  a6:	ff 4f       	sbci	r31, 0xFF	; 255
+  a8:	0c 94 86 00 	jmp	0x10c	; 0x10c <__tablejump2__>
+	{
+	case(0):
+	{
+	*p='Z'|'e'|'r'|'o';
+  ac:	8f e7       	ldi	r24, 0x7F	; 127
+  ae:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  b0:	ef cf       	rjmp	.-34     	; 0x90 <main+0x4>
+	}
+	
+	case(1):
+	{
+	*p='O'|'n'|'e';
+  b2:	8f e6       	ldi	r24, 0x6F	; 111
+  b4:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  b6:	ec cf       	rjmp	.-40     	; 0x90 <main+0x4>
+	}
+	
+	case(2):
+	{
+	*p='T'|'w'|'o';
+  b8:	8f e7       	ldi	r24, 0x7F	; 127
+  ba:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  bc:	e9 cf       	rjmp	.-46     	; 0x90 <main+0x4>
+	}
+	
+	case(3):
+	{
+	*p='T'|'h'|'r'|'e'|'e';
+  be:	8f e7       	ldi	r24, 0x7F	; 127
+  c0:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  c2:	e6 cf       	rjmp	.-52     	; 0x90 <main+0x4>
+	}
+	
+	case(4):
+	{
+	*p='F'|'o'|'u'|'r';
+  c4:	8f e7       	ldi	r24, 0x7F	; 127
+  c6:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  c8:	e3 cf       	rjmp	.-58     	; 0x90 <main+0x4>
+	}
+	
+	case(5):
+	{
+	*p='F'|'i'|'v'|'e';
+  ca:	8f e7       	ldi	r24, 0x7F	; 127
+  cc:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  ce:	e0 cf       	rjmp	.-64     	; 0x90 <main+0x4>
+	}
+	
+	case(6):
+	{
+	*p='S'|'i'|'x';
+  d0:	8b e7       	ldi	r24, 0x7B	; 123
+  d2:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  d4:	dd cf       	rjmp	.-70     	; 0x90 <main+0x4>
+	}
+	
+	case(7):
+	{
+	*p='S'|'e'|'v'|'e'|'n';
+  d6:	8f e7       	ldi	r24, 0x7F	; 127
+  d8:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  da:	da cf       	rjmp	.-76     	; 0x90 <main+0x4>
+	}
+	
+	case(8):
+	{
+	*p='E'|'i'|'g'|'h'|'t';
+  dc:	8f e7       	ldi	r24, 0x7F	; 127
+  de:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  e0:	d7 cf       	rjmp	.-82     	; 0x90 <main+0x4>
+	}
+	
+	case(9):
+	{
+	*p='N'|'i'|'n'|'e';
+  e2:	8f e6       	ldi	r24, 0x6F	; 111
+  e4:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  e6:	d4 cf       	rjmp	.-88     	; 0x90 <main+0x4>
+	}
+	
+	case(10):
+	{
+	*p='T'|'e'|'n';
+  e8:	8f e7       	ldi	r24, 0x7F	; 127
+  ea:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  ec:	d1 cf       	rjmp	.-94     	; 0x90 <main+0x4>
+	}
+	
+	case(11):
+	{
+	*p='E'|'l'|'e'|'v'|'e'|'n';
+  ee:	8f e7       	ldi	r24, 0x7F	; 127
+  f0:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  f2:	ce cf       	rjmp	.-100    	; 0x90 <main+0x4>
+	}
+	
+	case(12):
+	{
+	*p='T'|'w'|'e'|'l'|'v'|'e';
+  f4:	8f e7       	ldi	r24, 0x7F	; 127
+  f6:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  f8:	cb cf       	rjmp	.-106    	; 0x90 <main+0x4>
+	}
+	
+	case(13):
+	{
+	*p='T'|'h'|'i'|'r'|'t'|'e'|'e'|'n';
+  fa:	8f e7       	ldi	r24, 0x7F	; 127
+  fc:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+  fe:	c8 cf       	rjmp	.-112    	; 0x90 <main+0x4>
+	}
+	
+	case(14):
+	{
+	*p='F'|'o'|'u'|'r'|'t'|'e'|'e'|'n';
+ 100:	8f e7       	ldi	r24, 0x7F	; 127
+ 102:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+ 104:	c5 cf       	rjmp	.-118    	; 0x90 <main+0x4>
+	}
+	
+	case(15):
+	{
+	*p='F'|'i'|'f'|'t'|'e'|'e'|'n';
+ 106:	8f e7       	ldi	r24, 0x7F	; 127
+ 108:	8d 93       	st	X+, r24
+	p=p+1;
+	break;
+ 10a:	c2 cf       	rjmp	.-124    	; 0x90 <main+0x4>
+
+0000010c <__tablejump2__>:
+ 10c:	ee 0f       	add	r30, r30
+ 10e:	ff 1f       	adc	r31, r31
+ 110:	05 90       	lpm	r0, Z+
+ 112:	f4 91       	lpm	r31, Z
+ 114:	e0 2d       	mov	r30, r0
+ 116:	09 94       	ijmp
+
+00000118 <_exit>:
+ 118:	f8 94       	cli
+
+0000011a <__stop_program>:
+ 11a:	ff cf       	rjmp	.-2      	; 0x11a <__stop_program>
